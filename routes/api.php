@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::namespace('API')->group(function () {
+Route::namespace('Api')->group(function () {
     Route::prefix('assuntos')->group(function() {
         Route::get('/', 'AssuntoController@pesquisar');
         Route::get('/{id}', 'AssuntoController@pesquisar');
