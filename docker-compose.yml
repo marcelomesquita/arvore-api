@@ -1,0 +1,31 @@
+version: '3'
+services:
+  data:
+    image: mysql:5.7
+    container_name: data
+    build:
+      dockerfile: ./docker-mysql-5.7.dockerfile
+      context: .
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - local
+  web:
+    image: bbts/php-7.2-apache
+    build:
+      dockerfile: ./docker-php-7.2-apache.dockerfile
+      context: .
+    container_name: web
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8080:80"
+    networks:
+      - local
+    depends_on:
+      - "data"
+networks:
+  local:
+    driver: bridge
