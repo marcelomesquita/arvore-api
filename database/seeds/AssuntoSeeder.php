@@ -21,10 +21,10 @@ class AssuntoSeeder extends Seeder
                 $netos = factory(Assunto::class, rand(1, 3))->create();
 
                 for ($c = 0; $c < count($netos); $c++) {
-                   $filhos[$b]->filhos()->save($netos[$c]);
+                   $filhos[$b]->assuntos()->save($netos[$c]);
                 }
 
-                $pais[$a]->filhos()->save($filhos[$b]);
+                $pais[$a]->assuntos()->save($filhos[$b]);
             }
         }
     }

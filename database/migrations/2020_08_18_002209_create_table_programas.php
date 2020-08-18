@@ -17,6 +17,9 @@ class CreateTableProgramas extends Migration
             $table->id();
             $table->string('nome');
             $table->timestamps();
+
+            $table->foreignId('banca_id')->constrained('bancas');
+            $table->foreignId('orgao_id')->constrained('orgaos');
         });
     }
 

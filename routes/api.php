@@ -33,5 +33,6 @@ Route::namespace('Api')->group(function () {
 
     Route::prefix('programas')->group(function() {
         Route::get('/', 'ProgramaController@pesquisar');
+        Route::post('/cadastrar', 'ProgramaController@cadastrar');
     });
 });
