@@ -36,8 +36,8 @@ class ProgramaController extends Controller
             foreach ($request->assuntos as $assunto) {
 				$assuntoPrograma = new AssuntoPrograma();
 
-				$assuntoPrograma->assunto_id = $programa->id;
-				$assuntoPrograma->programa_id = $assunto;
+				$assuntoPrograma->assunto_id = $assunto;
+				$assuntoPrograma->programa_id = $programa->id;
 
                 $assuntoPrograma->save();
 			}
