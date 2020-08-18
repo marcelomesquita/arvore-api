@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Assunto;
+use App\Programa;
+use App\Questao;
 use Illuminate\Database\Eloquent\Model;
 
 class Assunto extends Model
@@ -10,6 +13,16 @@ class Assunto extends Model
 
     public function filhos()
     {
-        return $this->hasMany(\App\Assunto::class, 'id_pai');
+        return $this->hasMany(Assunto::class);
+    }
+
+    public function questoes()
+    {
+        return $this->hasMany(Questao::class);
+    }
+
+    public function programas()
+    {
+        return $this->belongsToMany(Programa::class);
     }
 }

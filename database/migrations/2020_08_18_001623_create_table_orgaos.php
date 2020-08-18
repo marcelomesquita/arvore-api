@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableAssuntos extends Migration
+class CreateTableOrgaos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateTableAssuntos extends Migration
      */
     public function up()
     {
-        Schema::create('assuntos', function (Blueprint $table) {
+        Schema::create('orgaos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->timestamps();
-
-            $table->foreignId('assunto_id')->nullable()->constrained('assuntos');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateTableAssuntos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assuntos');
+        Schema::dropIfExists('orgaos');
     }
 }

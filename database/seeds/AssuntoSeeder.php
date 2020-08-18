@@ -12,13 +12,13 @@ class AssuntoSeeder extends Seeder
      */
     public function run()
     {
-        $pais = factory(Assunto::class, rand(5, 10))->create();
+        $pais = factory(Assunto::class, rand(3, 5))->create();
 
         for ($a = 0; $a < count($pais); $a++) {
-            $filhos = factory(Assunto::class, rand(5, 10))->create();
+            $filhos = factory(Assunto::class, rand(1, 5))->create();
 
             for ($b = 0; $b < count($filhos); $b++) {
-                $netos = factory(Assunto::class, rand(5, 10))->create();
+                $netos = factory(Assunto::class, rand(1, 5))->create();
 
                 for ($c = 0; $c < count($netos); $c++) {
                    $filhos[$b]->filhos()->save($netos[$c]);
