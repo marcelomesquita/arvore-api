@@ -21,6 +21,17 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Api')->group(function () {
     Route::prefix('assuntos')->group(function() {
         Route::get('/', 'AssuntoController@pesquisar');
-        Route::get('/{id}', 'AssuntoController@pesquisar');
+    });
+
+    Route::prefix('bancas')->group(function() {
+        Route::get('/', 'BancaController@pesquisar');
+    });
+
+    Route::prefix('orgaos')->group(function() {
+        Route::get('/', 'OrgaoController@pesquisar');
+    });
+
+    Route::prefix('programas')->group(function() {
+        Route::get('/', 'ProgramaController@pesquisar');
     });
 });

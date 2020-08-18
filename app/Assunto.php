@@ -10,10 +10,11 @@ use Illuminate\Database\Eloquent\Model;
 class Assunto extends Model
 {
     protected $table = 'assuntos';
+    protected $appends = ['total'];
 
-    public function filhos()
+    public function assuntos()
     {
-        return $this->hasMany(Assunto::class);
+        return $this->hasMany(Assunto::class)->with('assuntos');
     }
 
     public function questoes()
@@ -24,5 +25,10 @@ class Assunto extends Model
     public function programas()
     {
         return $this->belongsToMany(Programa::class);
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->questoes()->count();
     }
 }
